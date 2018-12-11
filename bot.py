@@ -75,6 +75,8 @@ async def on_message(message: Message):
         api = NumbersAPI()
         resp = api.get(num, api.Categories.RANDOM)
         print(resp)
+        c_resp = api.client.get('/'.join(["https://http.cat/", str(num)]), params={'json': True})
+        print(c_resp)
         tmp = list()
         tmp.append("https://http.cat/"+str(num))
         tmp.append(resp)
