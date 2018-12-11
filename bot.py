@@ -75,6 +75,11 @@ async def on_message(message: Message):
         api = NumbersAPI()
         resp = api.get(num, api.Categories.RANDOM)
         print(resp)
+        tmp = list()
+        tmp.append("https://http.cat/"+str(num))
+        tmp.append(resp)
+        print(tmp)
+        resp = random.choice(tmp)
         await client.send_message(message.channel, resp)
     except ValueError:
         pass
